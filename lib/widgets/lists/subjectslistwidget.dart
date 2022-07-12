@@ -7,12 +7,15 @@ class SubjectList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var height = size.height;
+    var width = size.width;
     return ListView.builder(
       shrinkWrap: true,
       itemCount: subjectlist.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) => Padding(
-        padding: EdgeInsets.all(7.0),
+        padding: EdgeInsets.all(width / 56),
         child: SubjectCard(
           subject: subjectlist[index],
           index: index,
@@ -31,25 +34,28 @@ class SubjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var height = size.height;
+    var width = size.width;
     return Container(
       child: Column(
         children: [
           Container(
-            width: 60,
-            height: 50,
+            width: width / 6.533,
+            height: width / 7.84,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 248, 187, 208),
                 shape: BoxShape.circle),
           ),
           SizedBox(
-            height: 10,
+            height: width / 39.2,
           ),
           Container(
-              width: 80,
+              width: width / 4.9,
               child: Center(
                   child: Text(
                 subject.name,
-                style: Mytheme.small(context),
+                style: Mytheme.small(context, width),
               ))),
         ],
       ),

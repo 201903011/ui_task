@@ -13,6 +13,8 @@ class ExamHistoryList extends StatelessWidget {
     var width = size.width;
 
     return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: historylist.length,
       itemBuilder: (context, index) => Padding(
         padding: EdgeInsets.all(8.0),
@@ -37,7 +39,7 @@ class ExamHistoryCard extends StatelessWidget {
 
     return Container(
       width: width - 35,
-      height: height * 0.1 - 25,
+      height: width / 6.4262,
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(width * 0.02)),
       child: Row(
@@ -45,8 +47,8 @@ class ExamHistoryCard extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Container(
-              height: height * 0.1 - 25,
-              width: height * 0.1 - 25,
+              height: width / 6.4262,
+              width: width / 6.4262,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: Color.fromARGB(101, 248, 187, 208),
@@ -54,10 +56,10 @@ class ExamHistoryCard extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: height * 0.03,
+            width: width / 16.31,
           ),
           Container(
-            height: height * 0.1 - 35,
+            height: width * 0.4,
             width: width * 0.4,
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
@@ -67,14 +69,14 @@ class ExamHistoryCard extends StatelessWidget {
               children: [
                 Text(
                   history.sub_name,
-                  style: Mytheme.smallheading(context),
+                  style: Mytheme.smallheading(context, width),
                 ),
                 SizedBox(
-                  height: 12,
+                  height: width / 32.66,
                 ),
                 Text(
-                  "Score ${history.score} / 100",
-                  style: Mytheme.small(context),
+                  "Score ${history.score} / ${history.fullscore}",
+                  style: Mytheme.small(context, width),
                 )
               ],
             ),

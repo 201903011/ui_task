@@ -8,11 +8,15 @@ class ExamList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var height = size.height;
+    var width = size.width;
+
     return ListView.builder(
       itemCount: examlist.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) => Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(width / 49),
         child: ExamCard(
           exa: examlist[index],
           index: index,
@@ -36,7 +40,7 @@ class ExamCard extends StatelessWidget {
 
     return Container(
       width: width * 0.35,
-      height: 100,
+      height: width / 3.92,
       decoration: BoxDecoration(
         gradient: index % 3 == 0
             ? LinearGradient(
@@ -58,22 +62,22 @@ class ExamCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(width * 0.025),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(width / 49),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "English Literature",
-              style: Mytheme.smallw(context),
+              style: Mytheme.smallw(context, width),
             ),
             SizedBox(
-              height: 7,
+              height: width / 56,
             ),
             Row(
               children: [
                 Icon(
                   Icons.calendar_month,
-                  size: 10,
+                  size: width / 39.2,
                   color: Colors.white,
                 ),
                 SizedBox(
@@ -81,43 +85,44 @@ class ExamCard extends StatelessWidget {
                 ),
                 Text(
                   "8 to 9 February 2022",
-                  style: Mytheme.tinyw(context),
+                  style: Mytheme.tinyw(context, width),
                 ),
               ],
             ),
             SizedBox(
-              height: 7,
+              height: width / 56,
             ),
             Row(
               children: [
                 Icon(
                   Icons.timer_outlined,
-                  size: 10,
+                  size: width / 39.2,
                   color: Colors.white,
                 ),
                 SizedBox(
-                  width: 7,
+                  width: width / 56,
                 ),
                 Text(
                   "10am - 1pm",
-                  style: Mytheme.tinyw(context),
+                  style: Mytheme.tinyw(context, width),
                 ),
               ],
             ),
             SizedBox(
-              height: 5,
+              height: width / 78.4,
             ),
             Spacer(),
             Row(
               children: [
                 Text(
                   "Take Exam",
-                  style: Mytheme.smallw(context),
+                  style: Mytheme.smallw(context, width),
                 ),
                 SizedBox(
-                  width: 5,
+                  width: width / 78.4,
                 ),
-                Icon(Icons.arrow_right_alt, size: 12, color: Colors.white)
+                Icon(Icons.arrow_right_alt,
+                    size: width / 32.66, color: Colors.white)
               ],
             )
           ],
