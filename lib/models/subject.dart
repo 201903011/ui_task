@@ -8,7 +8,7 @@ class Subject {
 
 Subject su1 = Subject("id", "Physics", "image");
 
-Subject su2 = Subject("id", "Information Technology", "image");
+Subject su2 = Subject("id", "Maths", "image");
 
 Subject su3 = Subject("id", "Biology", "image");
 

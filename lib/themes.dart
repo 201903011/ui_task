@@ -25,15 +25,13 @@ class Mytheme {
         fontSize: width / 21.77,
       );
 
-  static TextStyle header1(BuildContext context, double width) => TextStyle(
-        fontSize: width / 17.81,
-        fontWeight: FontWeight.w700,
-      );
+  static TextStyle header1(BuildContext context, double width, Color color) =>
+      TextStyle(
+          fontSize: width / 17.81, fontWeight: FontWeight.w700, color: color);
 
-  static TextStyle header2(BuildContext context, double width) => TextStyle(
-        fontSize: width / 21.77,
-        fontWeight: FontWeight.w700,
-      );
+  static TextStyle header2(BuildContext context, double width, Color color) =>
+      TextStyle(
+          fontSize: width / 21.77, fontWeight: FontWeight.w400, color: color);
 
   static TextStyle see(BuildContext context, double width) => TextStyle(
         fontSize: width / 39.2,
@@ -49,19 +47,26 @@ class Mytheme {
         fontSize: width / 39.2,
       );
 
-  static TextStyle smallw(BuildContext context, double width) => TextStyle(
-        fontSize: width / 32.666,
-        color: Colors.white,
+  static TextStyle smallw(BuildContext context, double width, Color color) =>
+      TextStyle(
+        fontSize: width / 31.666,
+        color: color,
         fontWeight: FontWeight.w500,
       );
 
-  static TextStyle tinyw(BuildContext context, double width) => TextStyle(
+  static TextStyle tinyw(BuildContext context, double width, Color color) =>
+      TextStyle(
         fontSize: width / 39.2,
-        color: Colors.white,
+        color: color,
       );
 
-  static TextStyle smallheading(BuildContext context, double width) =>
-      TextStyle(fontSize: width / 28, fontWeight: FontWeight.w800);
+  static TextStyle smallheading(
+          BuildContext context, double width, Color color) =>
+      TextStyle(
+        fontSize: width / 28,
+        fontWeight: FontWeight.w800,
+        color: color,
+      );
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         primarySwatch: Colors.deepPurple,

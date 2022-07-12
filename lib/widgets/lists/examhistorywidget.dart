@@ -4,7 +4,8 @@ import 'package:ui_task/themes.dart';
 import '../../models/history.dart';
 
 class ExamHistoryList extends StatelessWidget {
-  const ExamHistoryList({Key? key}) : super(key: key);
+  final bool isColor;
+  const ExamHistoryList({Key? key, required this.isColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,17 @@ class ExamHistoryList extends StatelessWidget {
       itemCount: historylist.length,
       itemBuilder: (context, index) => Padding(
         padding: EdgeInsets.all(8.0),
-        child: ExamHistoryCard(index: index, history: historylist[index]),
+        child: ExamHistoryCard(
+          index: index,
+          history: historylist[index],
+          color: isColor
+              ? index % 3 == 0
+                  ? Color(0xffcd6262)
+                  : index % 3 == 1
+                      ? Color(0xff0061ab)
+                      : Color(0xff54ab00)
+              : Colors.black,
+        ),
       ),
     );
   }
@@ -27,8 +38,14 @@ class ExamHistoryList extends StatelessWidget {
 class ExamHistoryCard extends StatelessWidget {
   final int index;
   final ExamHistory history;
+  final Color color;
 
-  const ExamHistoryCard({Key? key, required this.index, required this.history})
+  const ExamHistoryCard(
+      {Key? key,
+      required this.index,
+      required this.history,
+      r,
+      required this.color})
       : super(key: key);
 
   @override
@@ -53,6 +70,7 @@ class ExamHistoryCard extends StatelessWidget {
                   shape: BoxShape.rectangle,
                   color: Color.fromARGB(101, 248, 187, 208),
                   borderRadius: BorderRadius.circular(width * 0.02)),
+              child: Image.asset("assets/images/photo.png"),
             ),
           ),
           SizedBox(
@@ -69,14 +87,14 @@ class ExamHistoryCard extends StatelessWidget {
               children: [
                 Text(
                   history.sub_name,
-                  style: Mytheme.smallheading(context, width),
+                  style: Mytheme.smallheading(context, width, color),
                 ),
                 SizedBox(
                   height: width / 32.66,
                 ),
                 Text(
                   "Score ${history.score} / ${history.fullscore}",
-                  style: Mytheme.small(context, width),
+                  style: Mytheme.smallw(context, width, color),
                 )
               ],
             ),

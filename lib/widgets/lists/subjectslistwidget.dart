@@ -37,27 +37,39 @@ class SubjectCard extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
+    Color color = index % 3 == 0
+        ? Color(0xffcd6262)
+        : index % 3 == 1
+            ? Color(0xff0061ab)
+            : Color(0xff54ab00);
+
     return Container(
-      child: Column(
-        children: [
-          Container(
-            width: width / 6.533,
-            height: width / 7.84,
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 248, 187, 208),
-                shape: BoxShape.circle),
-          ),
-          SizedBox(
-            height: width / 39.2,
-          ),
-          Container(
-              width: width / 4.9,
-              child: Center(
-                  child: Text(
-                subject.name,
-                style: Mytheme.small(context, width),
-              ))),
-        ],
+      decoration: BoxDecoration(
+        color: Color.fromARGB(41, 249, 164, 44),
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: width / 45,
+            ),
+            Container(
+              width: width / 6.533,
+              height: width / 7.84,
+              decoration: BoxDecoration(),
+              child: Image.asset("assets/images/photo.png"),
+            ),
+            Container(
+                width: width / 4.9,
+                child: Center(
+                    child: Text(
+                  subject.name,
+                  style: Mytheme.smallw(context, width, color),
+                  overflow: TextOverflow.ellipsis,
+                ))),
+          ],
+        ),
       ),
     );
   }

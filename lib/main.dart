@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_task/pages/examhistorypage.dart';
 import 'package:ui_task/screens/online_exam_home.dart';
 import 'package:ui_task/themes.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: Mytheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
       darkTheme: Mytheme.darkTheme(context),
-      home: OnlineExamHomeScreen(),
+      home: ExamHistPage1(),
     );
   }
 }

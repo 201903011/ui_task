@@ -16,7 +16,7 @@ class ExamList extends StatelessWidget {
       itemCount: examlist.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) => Padding(
-        padding: EdgeInsets.all(width / 49),
+        padding: EdgeInsets.all(width / 78.4),
         child: ExamCard(
           exa: examlist[index],
           index: index,
@@ -37,38 +37,27 @@ class ExamCard extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
+    Color color = index % 3 == 0
+        ? Color(0xffcd6262)
+        : index % 3 == 1
+            ? Color(0xff0061ab)
+            : Color(0xff54ab00);
 
     return Container(
       width: width * 0.35,
-      height: width / 3.92,
+      height: width * 0.35,
       decoration: BoxDecoration(
-        gradient: index % 3 == 0
-            ? LinearGradient(
-                colors: [Color(0xff0ea7bc), Color(0xff87eaf8)],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topRight,
-              )
-            : index % 3 == 1
-                ? LinearGradient(
-                    colors: [Color(0xff382bd9), Color(0xff5885fd)],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topRight,
-                  )
-                : LinearGradient(
-                    colors: [Color(0xff602fc5), Color(0xff864dfd)],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topRight,
-                  ),
-        borderRadius: BorderRadius.circular(width * 0.025),
-      ),
+          color: Color.fromARGB(41, 249, 164, 44),
+          borderRadius: BorderRadius.circular(width * 0.025),
+          shape: BoxShape.rectangle),
       child: Padding(
         padding: EdgeInsets.all(width / 49),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "English Literature",
-              style: Mytheme.smallw(context, width),
+              "Maths Chapter- 1",
+              style: Mytheme.smallw(context, width, color),
             ),
             SizedBox(
               height: width / 56,
@@ -78,14 +67,14 @@ class ExamCard extends StatelessWidget {
                 Icon(
                   Icons.calendar_month,
                   size: width / 39.2,
-                  color: Colors.white,
+                  color: color,
                 ),
                 SizedBox(
                   width: 7,
                 ),
                 Text(
-                  "8 to 9 February 2022",
-                  style: Mytheme.tinyw(context, width),
+                  "8 June, 2022",
+                  style: Mytheme.smallw(context, width, color),
                 ),
               ],
             ),
@@ -97,14 +86,14 @@ class ExamCard extends StatelessWidget {
                 Icon(
                   Icons.timer_outlined,
                   size: width / 39.2,
-                  color: Colors.white,
+                  color: color,
                 ),
                 SizedBox(
                   width: width / 56,
                 ),
                 Text(
-                  "10am - 1pm",
-                  style: Mytheme.tinyw(context, width),
+                  "8:30 am",
+                  style: Mytheme.smallw(context, width, color),
                 ),
               ],
             ),
@@ -114,15 +103,14 @@ class ExamCard extends StatelessWidget {
             Spacer(),
             Row(
               children: [
-                Text(
-                  "Take Exam",
-                  style: Mytheme.smallw(context, width),
-                ),
+                Icon(Icons.arrow_right_alt, size: width / 32.66, color: color),
                 SizedBox(
                   width: width / 78.4,
                 ),
-                Icon(Icons.arrow_right_alt,
-                    size: width / 32.66, color: Colors.white)
+                Text(
+                  "15 Questions",
+                  style: Mytheme.smallw(context, width, color),
+                ),
               ],
             )
           ],

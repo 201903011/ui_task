@@ -23,136 +23,158 @@ class _OnlineExamHomeScreenState extends State<OnlineExamHomeScreen> {
     var height = size.height;
     var width = size.width;
 
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: height / 15.33,
-        title: Padding(
-          padding: EdgeInsets.all(9),
-          child: Container(
-            height: width / 13.066,
-            width: width / 7.127,
-            decoration: BoxDecoration(
-                color: Colors.blueAccent.shade100,
-                borderRadius: BorderRadius.circular(width / 78.4)),
-          ),
-        ),
-        centerTitle: false,
-        actions: [
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: Container(
-              width: height / 21.47,
-              height: height / 21.47,
-              decoration: BoxDecoration(
-                color: Colors.blueAccent.shade100,
-                shape: BoxShape.circle,
-              ),
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: width / 24.5),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Exam ",
+                          style: Mytheme.header1(context, width, Colors.black),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Hello, John Doe",
+                          style: Mytheme.smalltext(context, width),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Your score is 75/100",
+                          style: Mytheme.smalltext(context, width),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: width / 3.5,
+                        height: width / 3.5,
+                        decoration: BoxDecoration(color: Colors.white),
+                        child: Image.asset(
+                          "assets/images/study.png",
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: width / 15.68,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Subjects",
+                      style: Mytheme.header2(context, width, Colors.black),
+                    ),
+                    Spacer(),
+                    Container(
+                      decoration: BoxDecoration(color: Color(0xffD9D9D9)),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: width / 80, vertical: width / 95),
+                        child: Center(
+                          child: Text(
+                            "see all",
+                            style:
+                                Mytheme.header2(context, width, Colors.black),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: width / 24.5),
+                  child: SizedBox(
+                    width: width - 35,
+                    height: width / 3.56,
+                    child: SubjectList(),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Take Exam",
+                      style: Mytheme.header2(context, width, Colors.black),
+                    ),
+                    Spacer(),
+                    Container(
+                      decoration: BoxDecoration(color: Color(0xffD9D9D9)),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: width / 80, vertical: width / 95),
+                        child: Center(
+                          child: Text(
+                            "see all",
+                            style:
+                                Mytheme.header2(context, width, Colors.black),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: width / 26.13,
+                ),
+                SizedBox(
+                  height: width * 0.31,
+                  width: width - 35,
+                  child: ExamList(),
+                ),
+                SizedBox(
+                  height: width / 26.13,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Exam History",
+                      style: Mytheme.header2(context, width, Colors.black),
+                    ),
+                    Spacer(),
+                    Container(
+                      decoration: BoxDecoration(color: Color(0xffD9D9D9)),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: width / 80, vertical: width / 95),
+                        child: Center(
+                          child: Text(
+                            "see all",
+                            style:
+                                Mytheme.header2(context, width, Colors.black),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: width / 19.2,
+                ),
+                SizedBox(
+                  height: 300,
+                  child: ExamHistoryList(isColor: false),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width / 24.5),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Hello, John Doe",
-                style: Mytheme.smalltext(context, width),
-              ),
-              SizedBox(
-                height: width / 49,
-              ),
-              Text(
-                "Welcome Back!",
-                style: Mytheme.header1(context, width),
-              ),
-              SizedBox(
-                height: width / 15.68,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Subjects",
-                    style: Mytheme.header2(context, width),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(right: width / 24.5),
-                    child: Text(
-                      "see all",
-                      style: Mytheme.see(context, width),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: width / 24.5),
-                child: SizedBox(
-                  width: width - 35,
-                  height: width / 3.56,
-                  child: SubjectList(),
-                ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Take Exam",
-                    style: Mytheme.header2(context, width),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(right: width / 24.5),
-                    child: Text(
-                      "see all",
-                      style: Mytheme.see(context, width),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: width / 26.13,
-              ),
-              SizedBox(
-                height: width * 0.31,
-                width: width - 35,
-                child: ExamList(),
-              ),
-              SizedBox(
-                height: width / 26.13,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Exam history ",
-                    style: Mytheme.header2(context, width),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(right: width / 24.5),
-                    child: Text(
-                      "see all",
-                      style: Mytheme.see(context, width),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: width / 19.2,
-              ),
-              SizedBox(
-                height: 300,
-                child: ExamHistoryList(),
-              ),
-            ],
-          ),
         ),
+        backgroundColor: Colors.white,
       ),
-      backgroundColor: Colors.white,
     );
   }
 }
