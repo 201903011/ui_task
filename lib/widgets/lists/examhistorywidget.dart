@@ -85,12 +85,15 @@ class ExamHistoryCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: width / 64.66,
+                ),
                 Text(
                   history.sub_name,
                   style: Mytheme.smallheading(context, width, color),
                 ),
                 SizedBox(
-                  height: width / 32.66,
+                  height: width / 64.66,
                 ),
                 Text(
                   "Score ${history.score} / ${history.fullscore}",

@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:ui_task/models/exam.dart';
 import 'package:ui_task/models/history.dart';
 import 'package:ui_task/models/subject.dart';
+import 'package:ui_task/pages/examhistorypage.dart';
 import 'package:ui_task/themes.dart';
 import 'package:ui_task/widgets/lists/examhistorywidget.dart';
 import 'package:ui_task/widgets/lists/examlistwidget.dart';
@@ -146,16 +147,25 @@ class _OnlineExamHomeScreenState extends State<OnlineExamHomeScreen> {
                       style: Mytheme.header2(context, width, Colors.black),
                     ),
                     Spacer(),
-                    Container(
-                      decoration: BoxDecoration(color: Color(0xffD9D9D9)),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: width / 80, vertical: width / 95),
-                        child: Center(
-                          child: Text(
-                            "see all",
-                            style:
-                                Mytheme.header2(context, width, Colors.black),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ExamHistPage1()),
+                        );
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(color: Color(0xffD9D9D9)),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width / 80, vertical: width / 95),
+                          child: Center(
+                            child: Text(
+                              "see all",
+                              style:
+                                  Mytheme.header2(context, width, Colors.black),
+                            ),
                           ),
                         ),
                       ),

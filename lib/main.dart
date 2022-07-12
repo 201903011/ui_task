@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: Mytheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
       darkTheme: Mytheme.darkTheme(context),
-      home: ExamHistPage1(),
+      home: OnlineExamHomeScreen(),
     );
   }
 }
