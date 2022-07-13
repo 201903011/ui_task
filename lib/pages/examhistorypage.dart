@@ -20,8 +20,7 @@ class ExamHistPage1 extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(top: 16, right: 14, left: 10),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Container(
                   height: width / 130.667,
@@ -36,7 +35,18 @@ class ExamHistPage1 extends StatelessWidget {
                 ),
                 Container(
                   height: width / 130.667,
-                  width: width / 30.153,
+                  width: width / 13.57,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.blue),
+                ),
+                SizedBox(
+                  height: width / 56,
+                  width: width / 39.2,
+                ),
+                Container(
+                  height: width / 130.667,
+                  width: width / 30.12,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.blue),
@@ -66,7 +76,7 @@ class ExamHistPage1 extends StatelessWidget {
                           height: 10,
                         ),
                         Container(
-                          width: width / 2,
+                          width: width / 1.7,
                           child: Text(
                             "Lorem ip hsdh h shg ohi  shs hwh io hsd vh hh sho h hsdod hdf hd ohd d hfsd dh  sih ",
                             style: Mytheme.smalltext(context, width),

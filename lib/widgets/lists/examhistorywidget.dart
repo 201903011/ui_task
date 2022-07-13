@@ -57,12 +57,14 @@ class ExamHistoryCard extends StatelessWidget {
     return Container(
       width: width - 35,
       height: width / 6.4262,
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(width * 0.02)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(width * 0.02),
+        color: color.withOpacity(0.2),
+      ),
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            padding: EdgeInsets.only(right: 8.0),
             child: Container(
               height: width / 6.4262,
               width: width / 6.4262,
