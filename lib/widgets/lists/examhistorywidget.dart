@@ -23,12 +23,15 @@ class ExamHistoryList extends StatelessWidget {
           index: index,
           history: historylist[index],
           color: isColor
-              ? index % 3 == 0
+              ? index % 4 == 0
                   ? Color(0xffcd6262)
-                  : index % 3 == 1
+                  : index % 4 == 1
                       ? Color(0xff0061ab)
-                      : Color(0xff54ab00)
+                      : index % 4 == 2
+                          ? Color(0xffF8A22C)
+                          : Color(0xff54ab00)
               : Colors.black,
+          isColor: isColor,
         ),
       ),
     );
@@ -39,13 +42,15 @@ class ExamHistoryCard extends StatelessWidget {
   final int index;
   final ExamHistory history;
   final Color color;
+  final bool isColor;
 
   const ExamHistoryCard(
       {Key? key,
       required this.index,
       required this.history,
       r,
-      required this.color})
+      required this.color,
+      required this.isColor})
       : super(key: key);
 
   @override
@@ -53,13 +58,30 @@ class ExamHistoryCard extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
-
+    Color color = isColor
+        ? index % 4 == 0
+            ? Color(0xffcd6262)
+            : index % 4 == 1
+                ? Color(0xff0061ab)
+                : index % 4 == 2
+                    ? Color(0xffF8A22C)
+                    : Color(0xff54ab00)
+        : Colors.black;
+    Color bgcolor = isColor
+        ? index % 4 == 0
+            ? Color(0xffcd6262)
+            : index % 4 == 1
+                ? Color(0xff0061ab)
+                : index % 4 == 2
+                    ? Color(0xffF8A22C)
+                    : Color(0xff54ab00)
+        : Colors.white;
     return Container(
       width: width - 35,
       height: width / 6.4262,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(width * 0.02),
-        color: color.withOpacity(0.2),
+        color: bgcolor.withOpacity(0.1),
       ),
       child: Row(
         children: [
@@ -70,9 +92,31 @@ class ExamHistoryCard extends StatelessWidget {
               width: width / 6.4262,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Color.fromARGB(101, 248, 187, 208),
+                  color: bgcolor.withOpacity(0.17),
                   borderRadius: BorderRadius.circular(width * 0.02)),
-              child: Image.asset("assets/images/photo.png"),
+              child: Column(children: [
+                Padding(
+                  padding:
+                      EdgeInsets.only(top: width / 49, bottom: width / 100),
+                  child: Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(width * 0.02)),
+                    child: Image.asset(
+                      "assets/images/ima.png",
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                Text(
+                  history.sub_name,
+                  style: Mytheme.tinyw(context, width, color),
+                  overflow: TextOverflow.ellipsis,
+                )
+              ]),
             ),
           ),
           SizedBox(

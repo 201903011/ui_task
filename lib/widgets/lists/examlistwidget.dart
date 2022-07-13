@@ -60,7 +60,7 @@ class ExamCard extends StatelessWidget {
               style: Mytheme.smallw(context, width, color),
             ),
             SizedBox(
-              height: width / 56,
+              height: width / 20,
             ),
             Row(
               children: [
@@ -79,14 +79,12 @@ class ExamCard extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: width / 56,
+              height: 0,
             ),
             Row(
               children: [
-                Icon(
-                  Icons.timer_outlined,
-                  size: width / 39.2,
-                  color: color,
+                SizedBox(
+                  width: width / 39.2,
                 ),
                 SizedBox(
                   width: width / 56,
@@ -103,7 +101,7 @@ class ExamCard extends StatelessWidget {
             Spacer(),
             Row(
               children: [
-                Icon(Icons.arrow_right_alt, size: width / 32.66, color: color),
+                Icon(Icons.edit_calendar, size: width / 32.66, color: color),
                 SizedBox(
                   width: width / 78.4,
                 ),

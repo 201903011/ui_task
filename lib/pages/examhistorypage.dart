@@ -24,13 +24,13 @@ class ExamHistPage1 extends StatelessWidget {
               children: [
                 Container(
                   height: width / 130.667,
-                  width: width / 13.57,
+                  width: width / 16,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.blue),
                 ),
                 SizedBox(
-                  height: width / 56,
+                  height: width / 76,
                   width: width / 39.2,
                 ),
                 Container(
@@ -41,7 +41,7 @@ class ExamHistPage1 extends StatelessWidget {
                       color: Colors.blue),
                 ),
                 SizedBox(
-                  height: width / 56,
+                  height: width / 76,
                   width: width / 39.2,
                 ),
                 Container(
